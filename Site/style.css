@@ -469,6 +469,32 @@ section.visible {
     border: 2px solid #550000;
 }
 
+/* ---------- COMMUNITY ---------- */
+#community {
+    padding: 60px 0;
+    background-color: #121212; /* Match team section background */
+    /* Optionally add a background image if desired */
+    /* background-image: url('images/community-bg.jpg'); */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: #D4D4D4;
+}
+
+.community-content {
+    text-align: center; /* Center the text block */
+    max-width: 800px; /* Limit width for readability, similar to About */
+    margin: 0 auto; /* Center the block horizontally */
+    padding: 0 1rem; /* Add some horizontal padding */
+}
+
+.community-content p {
+    margin-bottom: 1.2rem; /* Spacing between paragraphs */
+    font-size: 1rem; /* Consistent font size */
+    line-height: 1.8; /* Consistent line height */
+}
+
+
 /* ---------CONTACT-------- */
 
 #contact {
@@ -503,10 +529,10 @@ section.visible {
 
 .contact-details {
     padding: 20px;
-    border-right: 1px solid #333;
+    border-right: 1px solid #333; /* Only apply border if needed */
 }
 
-.contact-info h3,
+.contact-details h3, /* Corrected from .contact-info h3 */
 .social-links h3,
 .contact-form h3 {
     font-size: 1.5rem;
@@ -514,7 +540,7 @@ section.visible {
     margin-bottom: 20px;
 }
 
-.contact-info p {
+.contact-details p { /* Corrected from .contact-info p */
     font-size: 1rem;
     color: #808080;
     margin-bottom: 15px;
@@ -522,7 +548,7 @@ section.visible {
     align-items: center;
 }
 
-.contact-info p i {
+.contact-details p i { /* Corrected from .contact-info p i */
     color: #550000;
     margin-right: 10px;
     font-size: 1.2rem;
@@ -607,7 +633,7 @@ section.visible {
     background: #1E1E1E;
     font-weight: 300;
     font-size: 0.9rem;
-    margin-top: 3rem;
+    margin-top: 3rem; /* Adjust if negative margin from sections causes issues */
     color: #808080;
 }
 
@@ -652,7 +678,7 @@ section.visible {
     }
 
     nav ul {
-        background: #1e2d4a;
+        background: #1e2d4a; /* Consider matching this color theme or making it consistent */
         position: fixed;
         top: 0;
         right: -200px;
@@ -696,7 +722,27 @@ section.visible {
         font-size: 2rem;
     }
 
-    .services-list {
+    .services-list, /* Apply single column layout to more grids on mobile */
+    .team-list,
+    .events-list {
         grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        flex-direction: column; /* Stack contact info and form */
+    }
+
+    .contact-details {
+        border-right: none; /* Remove border when stacked */
+        border-bottom: 1px solid #333; /* Add border below details */
+        padding-bottom: 20px; /* Add some space */
+    }
+
+    .contact-form {
+        padding-top: 0; /* Adjust padding */
+    }
+
+    .community-content {
+        max-width: 100%; /* Allow full width on mobile */
     }
 }
