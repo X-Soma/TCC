@@ -20,27 +20,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // JavaScript for handling the mobile navigation menu
-    const menuIcon = document.querySelector('.mobile-menu-icon');
-    const navLinks = document.querySelector('.nav-links');
-    const overlay = document.getElementById('overlay');
+    const menuIcon = document.querySelector('.fas.fa-bars');
+        const closeIcon = document.querySelector('.fas.fa-times.close-menu-icon'); // Correct selector
+        const mobileMenu = document.querySelector('nav ul');
+        const overlay = document.querySelector('.overlay');
 
-    menuIcon.addEventListener('click', () => {
-        navLinks.classList.add('show-mobile-menu');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when the menu is open
-    });
+        menuIcon.addEventListener('click', function() {
+            mobileMenu.classList.add('show-mobile-menu');
+            overlay.classList.add('active');
+            document.body.classList.add('no-scroll'); // Prevent scrolling when the menu is open
 
-    overlay.addEventListener('click', () => {
-        navLinks.classList.remove('show-mobile-menu');
-        overlay.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('show-mobile-menu');
-            overlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
         });
-    });
+
+        closeIcon.addEventListener('click', function() {
+            mobileMenu.classList.remove('show-mobile-menu');
+            overlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
+
+        // Close the menu by clicking outside (on the overlay)
+        overlay.addEventListener('click', function() {
+            mobileMenu.classList.remove('show-mobile-menu');
+            overlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
 });
